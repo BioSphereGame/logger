@@ -22,3 +22,14 @@ pub const PREFIX_ERROR: &str = "\x1b[1;31m[ERROR]\x1b[0m";
 pub fn log(prefix: &str, message: &str) {
     println!("{} {}", prefix, message);
 }
+
+pub fn say_hi() {
+    log(
+        PREFIX_DEBUG,
+        format!("Booting {}Logger v{}{} up...",
+            COLOR_BOLD_GREEN,
+            env!("CARGO_PKG_VERSION"),
+            COLOR_RESET,
+        ).as_str()
+    );
+}
