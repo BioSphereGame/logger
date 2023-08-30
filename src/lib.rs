@@ -19,8 +19,14 @@ pub const PREFIX_INFO: &str = "\x1b[1;32m[INFO]\x1b[0m";
 pub const PREFIX_WARN: &str = "\x1b[1;33m[WARN]\x1b[0m";
 pub const PREFIX_ERROR: &str = "\x1b[1;31m[ERROR]\x1b[0m";
 
+
 pub fn log(prefix: &str, message: &str) {
     println!("{} {}", prefix, message);
+}
+
+pub fn error(file: &str, line: u32, column: u32, message: &str) {
+    println!("\x1b[1;31m[ERROR \x1b[31m({}:{}:{})\x1b[1;31m]\x1b[0m {}", file, line, column, message);
+    std::process::exit(1);
 }
 
 pub fn say_hi() {
